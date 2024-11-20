@@ -1,4 +1,5 @@
 import Browser from "webextension-polyfill";
+import { fetchDataForText } from "../api/api-service";
 
 Browser.runtime.onInstalled.addListener(() => {
   Browser.contextMenus.create({
@@ -12,12 +13,12 @@ Browser.contextMenus.onClicked.addListener((info, tab) => {
   if (info.menuItemId === "text-selection" && info.selectionText) {
     Browser.scripting.executeScript({
       target: { tabId: tab.id },
-      func: handleSelectedtext,
+      func: handleSelectedText,
       args: [info.selectionText],
     });
   }
 });
 
-function handleSelectedText(selectedText) {
-  console.log("Selected text", selectedText);
+async function handleSelectedText(selectedText) {
+  console.log(await fetchDataForText(selectedText));
 }

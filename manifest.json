@@ -9,7 +9,7 @@
         "activeTab"
     ],
     "background": {
-        "service_worker": "src/background/background.js",
+        "service_worker": "background.js",
         "type": "module"
     },
     "content_scripts": [
@@ -18,12 +18,12 @@
                 "<all_urls>"
             ],
             "js": [
-                "src/content/content-script.js"
+                "content.js"
             ]
         }
     ],
     "action": {
-        "default_popup": "public/index.html",
+        "default_popup": "index.html",
         "default_title": "AI text selection"
     }
 }

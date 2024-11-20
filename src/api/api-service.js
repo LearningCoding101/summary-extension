@@ -28,8 +28,5 @@ export async function fetchDataForText(selectedText) {
     ],
   };
 
-  return new Promise((resolve) => {
-    // Simulate network delay
-    setTimeout(() => resolve(mockResponse), 1000);
-  });
+  return mockResponse;
 }
