@@ -1,0 +1,29 @@
+{
+    "manifest_version": 3,
+    "name": "AI extension",
+    "version": "1.0",
+    "description": "Right-click selected text handler",
+    "permissions": [
+        "contextMenus",
+        "scripting",
+        "activeTab"
+    ],
+    "background": {
+        "service_worker": "src/background/background.js",
+        "type": "module"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "src/content/content-script.js"
+            ]
+        }
+    ],
+    "action": {
+        "default_popup": "public/index.html",
+        "default_title": "AI text selection"
+    }
+}
